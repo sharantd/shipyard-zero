@@ -1,0 +1,37 @@
+version: '3'
+
+tasks:
+  setup:
+    desc: Initial setup
+    cmds:
+      - echo "Setting up Shipyard Zero..."
+
+  cluster:create:
+    desc: Create local k3d cluster
+    cmds:
+      - k3d cluster create shipyard --agents 2
+
+  cluster:delete:
+    desc: Delete local k3d cluster
+    cmds:
+      - k3d cluster delete shipyard
+
+  cluster:status:
+    desc: Check cluster nodes
+    cmds:
+      - kubectl get nodes
+
+  lint:
+    desc: Run basic lint checks
+    cmds:
+      - echo "linting..."
+
+  format:
+    desc: Format files
+    cmds:
+      - echo "formatting..."
+
+  test:
+    desc: Run tests
+    cmds:
+      - echo "running tests..."
